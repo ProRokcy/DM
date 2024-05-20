@@ -1,0 +1,107 @@
+﻿<Page x:Class="ITService.Pages.OperatorPages.MainOperatorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ITService.Pages.OperatorPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainOperatorPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1">
+            <DataGrid IsReadOnly="True"
+                      Width="600"
+                      Height="300"
+                      AutoGenerateColumns="False"
+                      Name="MyDataGrid">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="*"
+                                            Header="заявки">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Grid.Row="0"
+                                            Grid.Column="0"
+                                            Orientation="Horizontal">
+                                        <TextBlock Text="Устройство: "/>
+                                        <TextBlock Text="{Binding Device}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0"
+                                            Grid.Column="1"
+                                            Orientation="Horizontal">
+                                        <TextBlock Text="Модель: "/>
+                                        <TextBlock Text="{Binding ModelDevice}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1"
+                                            Grid.Column="0"
+                                            Orientation="Horizontal">
+                                        <TextBlock Text="Описание: "/>
+                                        <TextBlock Text="{Binding Description}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1"
+                                            Grid.Column="1"
+                                            Orientation="Horizontal">
+                                        <TextBlock Text="Статус: "/>
+                                        <TextBlock Text="{Binding StatusApplications.Title}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2"
+                                            Grid.Column="0"
+                                            Orientation="Horizontal">
+                                        <TextBlock Text="Клиент: "/>
+                                        <TextBlock Text="{Binding Users.FIO}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2"
+                                            Grid.Column="1"
+                                            Orientation="Horizontal">
+                                        <TextBlock Text="Телефон: "/>
+                                        <TextBlock Text="{Binding Users.Phone}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3"
+                                            Grid.ColumnSpan="2"
+                                            Orientation="Horizontal">
+                                        <Button Name="EditBtn" Click="EditBtn_Click" Content="Зарегистрировать"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" 
+                    Grid.Row="0"
+                    HorizontalAlignment="Left"
+                    Margin="10">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Поиск по описанию" HorizontalAlignment="Left" Margin="0"/>
+                <TextBox x:Name="TxbSerch" TextChanged="TxbSerch_TextChanged" Width="250"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Фильтрация" HorizontalAlignment="Left" Margin="0"/>
+                <ComboBox Name="CmbStatus" Width="250"
+                         SelectionChanged="CmbStatus_SelectionChanged">
+                    <ComboBoxItem>Все</ComboBoxItem>
+                    <ComboBoxItem>В ожидании</ComboBoxItem>
+                    <ComboBoxItem>В работе</ComboBoxItem>
+                    <ComboBoxItem>Выполнены</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

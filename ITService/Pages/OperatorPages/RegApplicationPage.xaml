@@ -1,0 +1,27 @@
+﻿<Page x:Class="ITService.Pages.OperatorPages.RegApplicationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ITService.Pages.OperatorPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RegApplicationPage">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Приоритет:" Width="160"/>
+                <ComboBox Name="CmbPriority" Margin="5" Width="150" Height="30"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="выполняющий:" Width="160"/>
+                <ComboBox Name="CmbEmployee" Width="150" Margin="5" Height="30" SelectionChanged="CmbEmployee_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="EditAppBtn" Content="Зарегистрировать" Click="EditAppBtn_Click"/>
+                <Button x:Name="DelAppBtn" Content="Удалить" Click="DelAppBtn_Click"/>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Page>
